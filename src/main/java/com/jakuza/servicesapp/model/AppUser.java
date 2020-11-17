@@ -1,9 +1,6 @@
 package com.jakuza.servicesapp.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,5 +23,6 @@ public class AppUser {
     private String fullName;
 
     @ManyToMany
-    private List<AppSystem> systems;
+    @Singular
+    private List<System> systems;
 }

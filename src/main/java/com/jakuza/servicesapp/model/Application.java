@@ -1,9 +1,6 @@
 package com.jakuza.servicesapp.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -24,6 +21,7 @@ public class Application {
     private String name;
 
     @OneToMany
+    @Singular
     private List<AppUser> users;
 
 }
