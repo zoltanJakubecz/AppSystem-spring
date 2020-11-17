@@ -11,7 +11,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Data
 @Builder
-public class System {
+public class AppSystem {
 
     @Id
     @GeneratedValue

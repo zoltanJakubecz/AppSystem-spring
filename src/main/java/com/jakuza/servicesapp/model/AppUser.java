@@ -24,5 +24,5 @@ public class AppUser {
 
     @ManyToMany
     @Singular
-    private List<System> systems;
+    private List<AppSystem> appSystems;
 }
