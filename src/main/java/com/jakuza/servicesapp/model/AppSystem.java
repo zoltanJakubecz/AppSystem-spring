@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,14 +14,19 @@ import java.util.UUID;
 @AllArgsConstructor
 @Data
 @Builder
-public class SystemUser {
+public class AppSystem {
 
     @Id
     @GeneratedValue
     private UUID id;
 
-    private String fullName;
-
     @ManyToMany
-    private List<AppSystem> systems;
+    private List<SystemUser> systemUserList;
+
+    @OneToMany
+    private List<Application> applicationList;
+
+
+
+
 }
