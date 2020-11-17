@@ -24,4 +24,8 @@ public class Application {
     @Singular
     private List<AppUser> users;
 
+    public void runApplication(){
+        System.out.println(name + " is running...");
+    }
+
 }
