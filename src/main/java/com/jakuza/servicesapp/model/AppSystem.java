@@ -21,7 +21,7 @@ public class AppSystem {
     private UUID id;
 
     @ManyToMany
-    private List<SystemUser> systemUserList;
+    private List<AppUser> appUserList;
 
     @OneToMany
     private List<Application> applicationList;

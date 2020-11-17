@@ -24,6 +24,6 @@ public class Application {
     private String name;
 
     @OneToMany
-    private List<SystemUser> users;
+    private List<AppUser> users;
 
 }
