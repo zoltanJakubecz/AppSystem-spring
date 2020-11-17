@@ -1,9 +1,6 @@
 package com.jakuza.servicesapp.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,7 +11,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Data
 @Builder
-public class AppSystem {
+public class System {
 
     @Id
     @GeneratedValue
@@ -26,7 +23,8 @@ public class AppSystem {
     @OneToMany
     private List<Application> applicationList;
 
-
+    @ManyToMany
+    private List<MenuItem> mainMenu;
 
 
 }
