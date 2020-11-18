@@ -25,9 +25,7 @@ public class AppUserService {
         AppUser toUpdate = userRepository.findById(id).orElse(null);
         if(toUpdate == null) return null;
         toUpdate.setFullName(user.getFullName());
-        return AppUserDto.fromEntity(userRepository.save(AppUser.builder()
-                .fullName(toUpdate.getFullName())
-                .build()));
+        return AppUserDto.fromEntity(toUpdate);
     }
 
     public boolean remove(UUID id){
