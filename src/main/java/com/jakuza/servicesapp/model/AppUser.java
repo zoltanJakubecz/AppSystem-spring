@@ -5,8 +5,6 @@ import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -22,7 +20,5 @@ public class AppUser {
 
     private String fullName;
 
-    @ManyToMany
-    @Singular
-    private List<AppSystem> appSystems;
+
 }
