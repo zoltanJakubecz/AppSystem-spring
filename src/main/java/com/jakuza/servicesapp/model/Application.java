@@ -2,9 +2,7 @@ package com.jakuza.servicesapp.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,6 +21,9 @@ public class Application {
     @OneToMany
     @Singular
     private List<AppUser> users;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Icon icon;
 
     public void runApplication(){
         System.out.println(name + " is running...");
