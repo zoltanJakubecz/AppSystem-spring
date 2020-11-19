@@ -18,7 +18,7 @@ public class AppSystem {
     @GeneratedValue
     private UUID id;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "mySystems")
     private List<AppUser> appUserList;
 
     @OneToMany

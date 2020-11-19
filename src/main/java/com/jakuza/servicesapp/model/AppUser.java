@@ -2,9 +2,8 @@ package com.jakuza.servicesapp.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -20,5 +19,7 @@ public class AppUser {
 
     private String fullName;
 
+    @ManyToMany(cascade = { CascadeType.ALL })
+    private List<AppSystem> mySystems;
 
 }
