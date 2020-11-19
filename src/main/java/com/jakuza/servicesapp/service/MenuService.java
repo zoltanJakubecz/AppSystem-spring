@@ -12,14 +12,16 @@ import org.springframework.stereotype.Service;
 public class MenuService {
 
     private final MenuItemRepository repository;
+    private final SystemService systemService;
 
     public void addNewMenu(AppSystem system, AppUser user, String name){
         MenuItem menuItem = MenuItem.builder()
                 .name(name)
                 .owner(user)
                 .build();
-        repository.save(menuItem);
+        menuItem = repository.save(menuItem);
 
         system.addMenuItem(menuItem);
+        systemService.update(system);
     }
 }
