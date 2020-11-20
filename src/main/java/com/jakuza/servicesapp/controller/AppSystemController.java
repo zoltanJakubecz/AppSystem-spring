@@ -1,6 +1,7 @@
 package com.jakuza.servicesapp.controller;
 
 import com.jakuza.servicesapp.model.dto.AppSystemDto;
+import com.jakuza.servicesapp.model.dto.AppSystemIncomeDto;
 import com.jakuza.servicesapp.service.SystemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,11 @@ public class AppSystemController {
     @PostMapping
     public ResponseEntity<AppSystemDto> addNewSystem(@RequestBody AppSystemDto appSystemDto){
         return ResponseEntity.ok().body(service.create(appSystemDto));
+    }
+
+    @PostMapping("/basic-data")
+    public ResponseEntity<AppSystemDto> addNewBasicData(@RequestBody AppSystemIncomeDto appSystemIncomeDto){
+        return ResponseEntity.ok().body(service.createFromBasicData(appSystemIncomeDto));
     }
 
 }
