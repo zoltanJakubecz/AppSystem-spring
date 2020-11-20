@@ -1,8 +1,8 @@
 package com.jakuza.servicesapp.service;
 
 import com.jakuza.servicesapp.model.AppSystem;
-import com.jakuza.servicesapp.model.Application;
 import com.jakuza.servicesapp.model.dto.AppSystemDto;
+import com.jakuza.servicesapp.model.dto.AppSystemIncomeDto;
 import com.jakuza.servicesapp.repository.AppSystemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -27,5 +27,12 @@ public class SystemService {
         AppSystem appSystem = repository.findById(system.getId()).orElse(null);
         if(appSystem == null) return;
         appSystem.setMainMenu(system.getMainMenu());
+    }
+
+    public AppSystemDto createFromBasicData(AppSystemIncomeDto incomeDto){
+        AppSystem newSys = new AppSystem();
+        newSys.addApplication(incomeDto.getApplication());
+        newSys.addUserToSystem(incomeDto.getAppUser());
+        return AppSystemDto.fromEntity(repository.save(newSys));
     }
 }
