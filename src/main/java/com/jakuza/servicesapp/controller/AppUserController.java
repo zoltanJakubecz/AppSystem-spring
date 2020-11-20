@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
+@RequestMapping("/users")
 @RequiredArgsConstructor
 public class AppUserController {
 
     private final AppUserService service;
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<AppUserDto> create(@RequestBody AppUserDto userDto){
         return ResponseEntity.ok().body(service.create(userDto));
     }
