@@ -1,6 +1,8 @@
 package com.jakuza.servicesapp.service;
 
 import com.jakuza.servicesapp.model.AppSystem;
+import com.jakuza.servicesapp.model.Application;
+import com.jakuza.servicesapp.model.dto.AppSystemDto;
 import com.jakuza.servicesapp.repository.AppSystemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,13 @@ import javax.transaction.Transactional;
 public class SystemService {
 
     private final AppSystemRepository repository;
+
+    public AppSystemDto create(AppSystemDto systemDto){
+        return AppSystemDto.fromEntity(repository.save(AppSystem.builder()
+                                                    .applicationList(systemDto.getApplicationList())
+                                                    .appUserList(systemDto.getAppUserList())
+                                                    .build()));
+    }
 
     @Transactional
     public void update(AppSystem system){
